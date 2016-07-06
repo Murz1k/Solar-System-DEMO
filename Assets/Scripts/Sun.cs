@@ -11,7 +11,7 @@ public class Sun : MonoBehaviour
     {
         speedy = 1000;
     }
-    public void Update()
+    public void FixedUpdate()
     {
         transform.Rotate(Vector3.down, Time.deltaTime * speed);
         if (size == true && scale == false)

@@ -8,7 +8,6 @@ public class SetComponents : MonoBehaviour
     private float x;
     private string planetName;
     private GameObject planet;
-    private TextMesh text;
     void Start()
     {
         planetName = gameObject.name;
@@ -37,11 +36,8 @@ public class SetComponents : MonoBehaviour
         GameObject textMesh = GameObject.Find(planetName + "_Text");
         textMesh.transform.localPosition = new Vector3(0, size*0.75f, 0);
         textMesh.transform.eulerAngles = new Vector3(0,270,0);
-        text = textMesh.GetComponent<TextMesh>();
-        text.text = planetName;
-        text.anchor = TextAnchor.MiddleCenter;
     }
-    public void Update()
+    public void FixedUpdate()
     {
         transform.RotateAround(transform.root.transform.localPosition, Vector3.down, Time.deltaTime * speed);
         planet.transform.Rotate(Vector3.down, Time.deltaTime * speed);
